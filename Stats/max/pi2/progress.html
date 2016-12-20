@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Team Stats</title>
+
+    <!-- Bootstrap core CSS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../bootstrap/custom.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../bootstrap/preferences.js"></script>
+<script src="../../bootstrap/custom.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart', 'gauge', 'line', 'gantt']});
+	google.charts.setOnLoadCallback(function() {
+			drawChart('sprint1', 'Sprint 1', 600, 180, 80, 100, 14);
+			drawChart('sprint2', 'Sprint 2', 600, 180, 80, 100, 0);
+			drawChart('sprint3', 'Sprint 3', 600, 180, 80, 100, 0);
+			drawChart('sprint4', 'Sprint 4', 600, 180, 80, 100, 0);
+			drawChart('sprint5', 'Sprint 5', 600, 180, 80, 100, 0);
+			drawChart('sprint6', 'Sprint 6', 600, 180, 80, 100, 0);
+			drawFeatureChart();
+		});
+</script>
+
+<script type="text/javascript">
+    
+
+    function drawFeatureChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Task ID');
+      data.addColumn('string', 'Task Name');
+      data.addColumn('string', 'Resource');
+      data.addColumn('date', 'Start Date');
+      data.addColumn('date', 'End Date');
+      data.addColumn('number', 'Duration');
+      data.addColumn('number', 'Percent Complete');
+      data.addColumn('string', 'Dependencies');
+
+      data.addRows([
+        ['1','EAS-1285', 'Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 0, null],
+        ['2','EAS-1378', 'Not Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 0, null],
+		['3','EAS-1303', 'Not Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 0, null],
+        ['4','EAS-1370', 'Not Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 0, null],
+		['5','EAS-1369', 'Not Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 0, null],
+        ['6','EAS-1368', 'Not Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 0, null],
+		['7','EAS-1367', 'Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 14, null],
+        ['8','EAS-1298', 'Not Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 0, null],
+		['9','EAS-1293', 'Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 0, null],
+        ['10','EAS-1291', 'Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 0, null],
+		['11','EAS-1287', 'Not Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 0, null],
+        ['12','PIMS-387', 'Started', new Date(2016, 11, 1), new Date(2017, 1, 22), null, 0, null]
+      ]);
+
+      var options = {
+        height: 600,
+		width:1000,
+        gantt: {
+          criticalPathEnabled: false,
+          innerGridHorizLine: {
+            stroke: '#ffe0b2',
+            strokeWidth: 2,
+			
+			labelStyle: {
+  fontSize: 60,
+  color: '#757575'
+}
+
+
+          },
+          innerGridTrack: {fill: '#fff3e0'},
+          innerGridDarkTrack: {fill: '#ffcc80'}
+        }
+      };
+
+      var chart = new google.visualization.Gantt(document.getElementById('features'));
+
+      chart.draw(data, options);
+    }
+  </script>
+
+  </head>
+  <body>
+
+    <div class="">
+      <div class="">
+
+          <div class=" clearfix">
+              <h1 class="tv-h1 pull-left">TrainHoppers - Progress</h1>
+          </div>
+
+          <div class="inner">
+			<div class="row">
+			  <div class="col-md-2">
+				<div id="sprint1"></div>
+			  </div>
+			  <div class="col-md-2">
+				<div id="sprint2"></div>
+			  </div> 
+			  <div class="col-md-2">
+				<div id="sprint3"></div>
+			  </div>
+			  <div class="col-md-2">
+				<div id="sprint4"></div>
+			  </div> 
+			  <div class="col-md-2">
+				<div id="sprint5"></div>
+			  </div>
+			  <div class="col-md-2">
+				<div id="sprint6"></div>
+			  </div> 
+			</div>
+			<div class="row">
+			  <div class="col-md-2">
+				<div >&nbsp;</div>
+			  </div>
+			</div>
+			
+			<div class="row">
+			  <div class="col-md-2">
+				<div id="features"></div>
+			  </div>
+			</div>
+		  </div>
+			
+	  </div>
+		  
+        
+    </div>
+
+	
+  </body>
+</html>
+

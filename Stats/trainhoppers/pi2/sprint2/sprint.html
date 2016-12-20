@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Team Stats</title>
+
+    <!-- Bootstrap core CSS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="../../../bootstrap/custom.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../../bootstrap/sprintValues.js"></script>
+<script src="preferences.js"></script>
+<script src="../../../bootstrap/preferences.js"></script>
+<script src="../../../bootstrap/custom.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart', 'gauge', 'line']});
+    google.charts.setOnLoadCallback(init);	
+	function init(){
+		drawBurnDownChart(sprintData);
+	}	
+</script>
+<script>
+$(document).ready(function(){
+	$("#title").text(teamName + " - Sprint " + staticSprintNum);
+	$("#sprintNumber").text(staticSprintNum);
+	$("#daysInSprint").text(numOfSprintDays);
+	$("#cycleTime").text(teamCycletime);
+	$("#cycleTimeText").text(teamCycletimeText);
+	$("#throughput").text(teamThroughput);
+	$("#throughputText").text(teamThroughputText);
+	$("#percentageComplete").text(teamPercentageComplete);
+	$("#percentageCompleteText").text(teamPercentageCompleteText);
+	$("#productionIssues").text(teamProductionIssues);	
+	$("#stretchTargets").text(teamStretchTargets);
+	
+});
+</script> 
+
+  </head>
+  <body>
+
+    <div class="">
+      <div class="">
+
+          <div class=" clearfix">
+              <h1 class="tv-h1 pull-left" id="title"></h1>
+          </div>
+
+          <div class="inner">
+			 <div class="row">
+			  <div class="col-md-2 btn btn-error">
+				<ul class="list-unstyled">
+					<li><h5 class="tv-h5">Days left in sprint <span id="sprintNumber"></span></h5></li>
+					<li><h1 class="tv-h1" id="daysInSprint"></h1></li>
+					<li><h5 class="tv-h5">&nbsp;</h5></li>
+				</ul>
+			  </div>
+			
+			 <div class="col-md-2 btn btn-error">
+				<ul class="list-unstyled">
+					<li><h5 class="tv-h5">Cycle Time</h5></li>
+					<li><h1 class="tv-h1" id="cycleTime"></h1></li>
+					<li><h5 class="tv-h5" id="cycleTimeText"></h5></li>
+				</ul>
+			  </div>
+			  <div class="col-md-2 btn btn-error ">
+				<ul class="list-unstyled">
+					<li><h5 class="tv-h5">Throughput</h5></li>
+					<li><h1 class="tv-h1" id="throughput"></h1></li>
+					<li><h5 class="tv-h5" id="throughputText"></h5></li>
+				</ul>
+			  </div>
+			  <div class="col-md-2 btn btn-error ">
+				<ul class="list-unstyled">
+					<li><h5 class="tv-h5">% Complete</h5></li>
+					<li><h1 class="tv-h1" id="percentageComplete"></h1></li>
+					<li><h5 class="tv-h5" id="percentageCompleteText"></h5></li>
+				</ul>
+			  </div>
+			  <div class="col-md-2 btn btn-error ">
+				<ul class="list-unstyled">
+					<li><h5 class="tv-h5"># Production Issues</h5></li>
+					<li><h1 class="tv-h1" id="productionIssues"></h1></li>
+					<li><h5 class="tv-h5">&nbsp;</h5></li>
+				</ul>
+			  </div>
+			  <div class="col-md-2 btn btn-error ">
+				<ul class="list-unstyled">
+					<li><h5 class="tv-h5"># Stretch Targets</h5></li>
+					<li><h1 class="tv-h1" id="stretchTargets"></h1></li>
+					<li><h5 class="tv-h5">&nbsp;</h5></li>
+				</ul>
+			  </div>
+			</div>
+			  
+			<div class="row pull-left line-graph-margin-fix">
+				<div class="col-md-12">
+					<div id="chart_burndown"></div>
+				</div>
+			</div>
+		  </div>
+			
+	  </div>
+    </div>
+
+	
+  </body>
+</html>

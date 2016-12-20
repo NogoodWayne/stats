@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Team Stats</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" href="../../bootstrap/custom.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="../../bootstrap/preferences.js"></script>
+	<script src="preferences.js"></script>
+	<script src="../../bootstrap/gauge.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load('current', {'packages':['corechart', 'gauge', 'line', 'gantt']});
+		google.charts.setOnLoadCallback(function() {
+				drawChart(gaugeOne.id, gaugeOne.name, width, height, gaugeOne.greenZone, gaugeOne.redZone, gaugeOne.value, gaugeOne.max, gaugeOne.min, gaugeOne.units);
+				drawChart(gaugeTwo.id, gaugeTwo.name, width, height, gaugeTwo.greenZone, gaugeTwo.redZone, gaugeTwo.value, gaugeTwo.max, gaugeTwo.min, gaugeTwo.units);
+				drawChart(gaugeThree.id, gaugeThree.name, width, height, gaugeThree.greenZone, gaugeThree.redZone, gaugeThree.value, gaugeThree.max, gaugeThree.min, gaugeThree.units);
+				drawChart(gaugeFour.id, gaugeFour.name, width, height, gaugeFour.greenZone, gaugeFour.redZone, gaugeFour.value, gaugeFour.max, gaugeFour.min, gaugeFour.units);
+				drawChart(gaugeFive.id, gaugeFive.name, width, height, gaugeFive.greenZone, gaugeFive.redZone, gaugeFive.value, gaugeFive.max, gaugeFive.min, gaugeFive.units);
+				drawChart(gaugeSix.id, gaugeSix.name, width, height, gaugeSix.greenZone, gaugeSix.redZone, gaugeSix.value, gaugeSix.max, gaugeSix.min, gaugeSix.units);
+				$("#title").text(title);
+			});
+	</script>
+  </head>
+  <body>
+
+    <div class="">
+      <div class="">
+          <div class=" clearfix">
+              <h1 class="tv-h1 pull-left" id='title'></h1>
+          </div>
+          <div class="inner">
+			<div class="row">
+			  <div class="col-md-3">
+				<div id="gauge1"></div>
+				<div><h3 class="pull-left" id="gauge1Name"></h3></div>
+			  </div>
+			  <div class="col-md-3">
+				<div id="gauge2"></div>
+				<div><h3 class="pull-left" id="gauge2Name"></h3></div>
+			  </div> 
+			  <div class="col-md-3">
+				<div id="gauge3"></div>
+				<div><h3 class="pull-left" id="gauge3Name"></h3></div>
+			  </div>
+			</div>
+			
+			<div class="row"><div class="col-md-12"><p>&nbsp;</p></div></div>
+			
+			<div class="row">
+			  <div class="col-md-3">
+				<div id="gauge4"></div>
+				<div><h3 class="pull-left" id="gauge4Name"></h3></div>
+			  </div> 
+			  <div class="col-md-3">
+				<div id="gauge5"></div>
+				<div><h3 class="pull-left" id="gauge5Name"></h3></div>
+			  </div>
+			  <div class="col-md-3">
+				<div id="gauge6"></div>
+				<div><h3 class="pull-left" id="gauge6Name"></h3></div>
+			  </div> 
+			</div>
+		  </div>
+	  </div>
+    </div>
+  </body>
+</html>
+
